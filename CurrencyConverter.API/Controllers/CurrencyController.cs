@@ -17,9 +17,15 @@ namespace CurrencyConverter.API.Controllers
         }
 
         [HttpGet("currencies")]
-        public async Task<ActionResult<Currencies>> Get()
+        public async Task<ActionResult<Currencies>> GetCurrencies()
         {
            return Ok( await _currencyConverterService.GetCurrencies());
+        }
+
+        [HttpGet("convert/{coinIn}-{coinOut}")]
+        public async Task<ActionResult<Dictionary<string, decimal>>> ConvertCurrencies(string coinIn, string coinOut)
+        {
+            return Ok(await _currencyConverterService.ConvertCurrencies(coinIn, coinOut));
         }
     }
 }

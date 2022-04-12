@@ -16,5 +16,10 @@ namespace CurrencyConverter.Service.Service
         {
             return await _currencyApiClient.GetCurrencies();
         }
+
+        public async Task<Dictionary<string, decimal>> ConvertCurrencies(string coinIn, string coinOut)
+        {
+            return await _currencyApiClient.ConvertCurrencies(coinIn, coinOut);
+        }
     }
 }
