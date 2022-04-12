@@ -21,5 +21,10 @@ namespace CurrencyConverter.Service.Service
         {
             return await _currencyApiClient.ConvertCurrencies(coinIn, coinOut);
         }
+
+        public async Task<decimal> GetValueConversor(decimal value, string coinIn, string coinOut)
+        {
+            return (await _currencyApiClient.ConvertCurrencies(coinIn, coinOut)).ElementAt(0).Value * value;
+        } 
     }
 }

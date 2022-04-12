@@ -6,5 +6,6 @@ namespace CurrencyConverter.Domain.Interface.Service
     {
         Task<Dictionary<string, decimal>> ConvertCurrencies(string coinIn, string coinOut);
         Task<Currencies> GetCurrencies();
+        Task<decimal> GetValueConversor(decimal value, string coinIn, string coinOut);
     }
 }

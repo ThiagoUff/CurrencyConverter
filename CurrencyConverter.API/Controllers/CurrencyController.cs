@@ -27,5 +27,11 @@ namespace CurrencyConverter.API.Controllers
         {
             return Ok(await _currencyConverterService.ConvertCurrencies(coinIn, coinOut));
         }
+
+        [HttpGet("quotation/{value}-{coinIn}-{coinOut}")]
+        public async Task<ActionResult<decimal>> GetValueConversor(decimal value, string coinIn, string coinOut)
+        {
+            return Ok(await _currencyConverterService.GetValueConversor(value, coinIn, coinOut));
+        }
     }
 }
